@@ -1,299 +1,165 @@
-\documentclass{bredelebeamer}
+\documentclass{beamer}
+\usepackage[portuguese]{babel}
+\usepackage[utf8]{inputenc}
+\usetheme{Madrid}
 
 
+\title{Programação Orientada a Aspectos}
+
+\subtitle{}
+
+\author{Alexandre Castro\inst{1} \and Júlia Ribeiro\inst{2} \and Raphael\inst{3} \and Rallyson{4} \and Samuel\inst{5}\and Antônio\inst{6}}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-\title[Titre version courte]{Placez votre titre ici dans sa version longue}
-% Titre du diaporama
-
-\subtitle{Vous pouvez ajouter un sous-titre}
-% Sous-titre optionnel
-
-\author{Marcel Dupont\inst{1}}
-% La commande \inst{...} Permet d'afficher l' affiliation de l'intervenant.
-% Si il y a plusieurs intervenants: Marcel Dupont\inst{1}, Roger Durand\inst{2}
-% Il suffit alors d'ajouter un autre institut sur le modèle ci-dessous.
-
-\institute[Université de Knackenheim]
+\institute[Instituto Federal de Alagoas] 
 {
   \inst{1}%
-  Molécules et fluides intermittents\\
-  Institut de la Grande Gudule
-  }
+  Sistemas de informação\\
+  Instituto Federal de Alagoas
+ }
 
 
-\date{18 Brumaire 2015}
-% Optionnel. La date, généralement celle du jour de la conférence
-
-\subject{Sujet de votre diaporama}
-% C'est utilisé dans les métadonnes du PDF
+\date{30 de Agosto de 2018}
 
 
+\subject{Theoretical Computer Science}
 
-\logo{
-\includegraphics[scale=0.15]{images/logo.jpg}
+\AtBeginSubsection[]
+{
+  \begin{frame}<beamer>{Outline}
+    \tableofcontents[currentsection,currentsubsection]
+  \end{frame}
 }
 
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 
 \begin{frame}
   \titlepage
 \end{frame}
 
-
-
-
-
-\begin{frame}{Sommaire}
+\begin{frame}{Introdução}
   \tableofcontents
-  % possibilité d'ajouter l'option [pausesections]
+ 
 \end{frame}
 
 
+\section{O que significa programação  orientada a aspectos}
+
+\subsection{Conceitos Básicos}
+
+\begin{frame}{O que é POA}{}
+  \begin{itemize}
+  
+  
+  \item {
+   É um paradigma de programação de computadores que permite aos desenvolvedores de software separar e organizar o código de acordo com a sua importância para a aplicação (separation of concerns)
+  }
+  
+  
+  \item{A linguagem orientada a aspectos separa os interesses transversais(Crosscutting concerns) em módulos. Tais módulos são chamados de aspectos.
+  }
+  
+  
+  \end{itemize}
+\end{frame}
+
+\subsection{POO ou POA?}
 
 
-\section{Aperçu global}
+\begin{frame}{POO ou POA?}
+  \begin{itemize}
+  
+  
+  \item {
+     A POA não surgiu para substituir a POO, mas sim para trabalhar em conjunto.
+    \pause % The slide will pause after showing the first item
+  }
+  \item {   
+    Todo o programa escrito no paradigma orientado a objetos possui código que é alheio a implementação do comportamento do objeto. Este código é todo aquele utilizado para implementar funcionalidades secundárias e que se encontra espalhado por toda a aplicação (crosscutting concern). A POA permite que esse código seja encapsulado e modularizado.
+  }
+  
+  \end{itemize}
+\end{frame}
 
-\begin{frame}{Aperçu global}
-Texte normal \alert{Texte Alert}  \exemple{Texte exemple} \emph{Texte emphase}
-
-\begin{columns}
-
-\begin{column}{0.5\textwidth}
-\begin{block}{Bloc simple}
+\section{Utilizando a POA}
+\subsection{Joinpoint e Cutpoint}
+\begin{frame}{Joinpoint e Cutpoint}
 \begin{itemize}
-\item Premier point
-\end{itemize}
-\end{block}
 
-\begin{exampleblock}{Bloc exemple}
+
+    \item {Jointpoint são pontos de junção do programa que executam o programa.
+    }
+    \item { Pointcuts é um conjunto de pontos de junção e permite dizer onde exatamente aplicar o Advice.
+    }
+    \item {Advice é o código que deve ser aplicado em um determinado ponto do joinpoint de um programa.
+    }
+    
+    
+\end{itemize}
+
+\end{frame}
+
+\subsection{Interseção}
+\begin{frame}{Interseção}
+
 \begin{itemize}
-\item Premier point
-\end{itemize}
-\end{exampleblock}
 
-\begin{alertblock}{Bloc alert}
+
+    \item {O processo de interseção é conhecido como weaving.
+                 Ele é responsável por combinar o código OO com o OA para a geração do sistema final.
+          }
+    
+          
+\end{itemize}
+
+\end{frame}
+
+
+\subsection{Organizando em POA}
+\begin{frame}{Organizando em POA}
+
 \begin{itemize}
-\item Premier point
+    \item {Identificar e caracterizar requisitos \pause
+    
+    }
+    \item {Implementar requisitos não-transversais utilizando CLASSES
+    
+    }
+    \item { Implementar requisitos transversais utilizando ASPECTOS
+    
+    }
 \end{itemize}
-\end{alertblock}
-
-\end{column}
-
-\begin{column}{0.5\textwidth}
-\boiteviolette{
-Une boite violette
-}
-
-\boiteorange{
-Une boite orange
-}
-
-\boitegrise{
-Une boite grise
-}
-
-
-
-\begin{tcolorbox}[tabvert,tabularx={X||Y|Y|Y|Y||Y}, boxrule=0.5pt, title=Mon tableau des prix]
-Couleur & Prix 1  & Prix 2  & Prix 3 \\\hline\hline
-Rouge   & 10.00   & 20.00   &  30.00 \\\hline
-Vert    & 20.00   & 30.00   &  40.00  \\\hline
-Bleu    & 30.00   & 40.00   &  50.00 \\\hline\hline
-Orange  & 60.00   & 90.00   & 120.00 
-\end{tcolorbox}
-
-\end{column}
-
-\end{columns}
+    
 \end{frame}
 
 
+% All of the following is optional and typically not needed. 
+\appendix
+\section<presentation>*{\appendixname}
+\subsection<presentation>*{Para ler mais sobre}
+
+\begin{frame}[allowframebreaks]
+  \frametitle<presentation>{Para ler mais sobre}
+    
+  \begin{thebibliography}{10}
+    
+  \beamertemplatebookbibitems
+  % Start with overview books.
+
+  \bibitem{Author1990}
+   Ricardo Terra (rterrabh [at] gmail.com) Outubro, 2013 Programação Orientada a Aspectos Ricardo Terra rterrabh [at] gmail.com Programação Orientada a Aspectos 1
+  
+  \beamertemplatearticlebibitems
+  % Followed by interesting articles. Keep the list short. 
 
 
-\section{Les blocs}
-
-\begin{frame}{Les blocs}
-
-\begin{block}{Bloc simple}
-\begin{itemize}
-\item Premier point
-\item Second point
-\item Troisième point
-\end{itemize}
-\end{block}
-
-\begin{exampleblock}{Bloc exemple}
-\begin{itemize}
-\item Premier point
-\item Second point
-\item Troisième point
-\end{itemize}
-\end{exampleblock}
-
-\begin{alertblock}{Bloc alert}
-\begin{itemize}
-\item Premier point
-\item Second point
-\item Troisième point
-\end{itemize}
-\end{alertblock}
+   
+ 
+   
+  \end{thebibliography}
 \end{frame}
-
-
-\section{Les bo\^ites}
-
-\begin{frame}{Les boites}
-
-\begin{columns}
-
-\begin{column}{0.5\textwidth}
-\boitejaune{
-Ceci est \\
-une boite jaune
-}
-
-\boiteorange{
-Ceci est \\
-une boite orange
-}
-
-\boitemarron{
-Ceci est \\
-une boite marron
-}
-\end{column}
-
-\begin{column}{0.5\textwidth}
-\boiteviolette{
-Ceci est \\
-une boite violette
-}
-
-\boitebleue{
-Ceci est \\
-une boite bleue
-}
-
-\boitegrise{
-Ceci est \\
-une boite grise
-}
-
-\end{column}
-
-\end{columns}
-
-
-\end{frame}
-
-
-
-\section{Les listes}
-    \subsection{Liste à item}
-
-\begin{frame}{Titre de la frame}
-
-    \begin{itemize}
-        \item premier élément de liste,
-        \item deuxième élément de liste,
-        \item troisième élément de liste.
-    \end{itemize}
-\end{frame} 
-
-        \subsection{Liste énumérative} 
-\begin{frame}{Titre de la frame} 
-    \begin{enumerate}
-        \item élément de liste numéro 1,
-        \item élément de liste numéro 2,
-        \item élément de liste numéro 3.  
-    \end{enumerate}
-\end{frame}
-
-
-        \subsection{Liste descriptive} 
-\begin{frame}{Titre de la frame} 
-    \begin{description}
-        \item [Thème de présentation : ] ces thèmes sont en fait...
-        \item [Thème de couleur : ] gère tout ce qui est couleur...
-        \item [Thème de police : ] s'occupe de tout ce qui est police, gras...
-        \item [Thème interne : ] s'occupe de l'apparence des éléments...
-    \end{description}
-\end{frame}
-
-
-
-\section{Le texte}
-
-\begin{frame}{Titre de la frame} 
-
-Voici du texte normal
-
-\alert{Voici du texte \texttt{alert}}
-
-\exemple{Voici du texte \texttt{exemple}}
-
-\emph{Voici du texte \texttt{emphase}}
-
-\end{frame}
-
-
-\section{Les tableaux}
-
-\begin{frame}{Tableaux}
-
-% merci: http://tex.stackexchange.com/questions/112343/beautiful-table-samples
-
-\begin{tcolorbox}[tabjaune,tabularx={X||Y|Y|Y|Y||Y}, boxrule=0.5pt]
-Couleur & Prix 1  & Prix 2  & Prix 3   & Prix 4   & Prix 5 \\\hline\hline
-Rouge   & 10.00   & 20.00   &  30.00   &  40.00   & 100.00 \\\hline
-Vert    & 20.00   & 30.00   &  40.00   &  50.00   & 140.00 \\\hline
-Bleu    & 30.00   & 40.00   &  50.00   &  60.00   & 180.00 \\\hline\hline
-Orange  & 60.00   & 90.00   & 120.00   & 150.00   & 420.00
-\end{tcolorbox}
-
-\begin{tcolorbox}[tabvert,tabularx={X||Y|Y|Y|Y||Y}, boxrule=0.5pt, title=Mon tableau des prix]
-Couleur & Prix 1  & Prix 2  & Prix 3   & Prix 4   & Prix 5 \\\hline\hline
-Rouge   & 10.00   & 20.00   &  30.00   &  40.00   & 100.00 \\\hline
-Vert    & 20.00   & 30.00   &  40.00   &  50.00   & 140.00 \\\hline
-Bleu    & 30.00   & 40.00   &  50.00   &  60.00   & 180.00 \\\hline\hline
-Orange  & 60.00   & 90.00   & 120.00   & 150.00   & 420.00
-\end{tcolorbox}
-
-\end{frame}
-
-
-\begin{frame}{Tableaux}
-
-% merci: http://tex.stackexchange.com/questions/112343/beautiful-table-samples
-
-\begin{tcolorbox}[tabgris,tabularx={X||Y|Y|Y|Y||Y}, boxrule=0.5pt]
-Couleur & Prix 1  & Prix 2  & Prix 3   & Prix 4   & Prix 5 \\\hline\hline
-Rouge   & 10.00   & 20.00   &  30.00   &  40.00   & 100.00 \\\hline
-Vert    & 20.00   & 30.00   &  40.00   &  50.00   & 140.00 \\\hline
-Bleu    & 30.00   & 40.00   &  50.00   &  60.00   & 180.00 \\\hline\hline
-Orange  & 60.00   & 90.00   & 120.00   & 150.00   & 420.00
-\end{tcolorbox}
-
-\begin{tcolorbox}[taborange,tabularx={X||Y|Y|Y|Y||Y}, boxrule=0.5pt, title=Mon tableau des prix]
-Couleur & Prix 1  & Prix 2  & Prix 3   & Prix 4   & Prix 5 \\\hline\hline
-Rouge   & 10.00   & 20.00   &  30.00   &  40.00   & 100.00 \\\hline
-Vert    & 20.00   & 30.00   &  40.00   &  50.00   & 140.00 \\\hline
-Bleu    & 30.00   & 40.00   &  50.00   &  60.00   & 180.00 \\\hline\hline
-Orange  & 60.00   & 90.00   & 120.00   & 150.00   & 420.00
-\end{tcolorbox}
-
-\end{frame}
-
-
-
-
 
 \end{document}
+
+
